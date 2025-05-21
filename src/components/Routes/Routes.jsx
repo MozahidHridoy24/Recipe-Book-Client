@@ -4,6 +4,8 @@ import { Children } from "react";
 import ErrorPage from "../ErrorPage";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
+import Register from "../Register";
+import AddRecipe from "../Pages/AddRecipe";
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +20,15 @@ export const router = createBrowserRouter([
     },
     {
         path:'/login',
-        element: <Login></Login>
+        element: <Login></Login>,
+    },
+    {
+        path:'/register',
+        element: <Register></Register>
+    },
+    {
+        path:'/add-recipes',
+        element: <AddRecipe></AddRecipe>,
     },
 ],
   },

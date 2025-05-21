@@ -7,6 +7,7 @@ import {
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
+  updateProfile,
 } from 'firebase/auth';
 import { app } from '../Firebase/firebase.init';
 
@@ -44,9 +45,15 @@ const AuthProvider = ({ children }) => {
 
   // Function to login with Google using popup
   const googleLogin = () => signInWithPopup(auth, new GoogleAuthProvider());
+  const updateUserProfile = (name, photoURL) => {
+  return updateProfile(auth.currentUser, {
+    displayName: name,
+    photoURL: photoURL,
+  });
+};
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout, googleLogin }}>
+    <AuthContext.Provider value={{ user, loading, login, register, logout, googleLogin, updateUserProfile }}>
       {children}
     </AuthContext.Provider>
   );

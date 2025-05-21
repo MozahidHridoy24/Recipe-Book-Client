@@ -44,7 +44,7 @@ const Login = () => {
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text text-amber-500">Email</span>
             </label>
             <input
               type="email"
@@ -57,7 +57,7 @@ const Login = () => {
 
           <div>
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text text-amber-500">Password</span>
             </label>
             <input
               type="password"
@@ -90,7 +90,7 @@ const Login = () => {
           Continue with Google
         </button>
 
-        <p className="text-sm text-center mt-4 text-amber-300">
+        <p className="text-sm text-center mt-4 text-amber-500">
           Don’t have an account?{" "}
           <Link
             to="/register"

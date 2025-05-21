@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { Link, NavLink } from "react-router"; // ✅ Ensure correct router
+import { Link, NavLink } from "react-router";
 import { FiLogOut } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";
 import { AuthContext } from "./Contexts/AuthContext";
@@ -11,55 +11,68 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = (
-    <>
-      <NavLink
-        to="/"
-        className="hover:text-orange-500"
-        onClick={() => setIsMenuOpen(false)}
-      >
-        Home
-      </NavLink>
-      <NavLink
-        to="/all-recipes"
-        className="hover:text-orange-500"
-        onClick={() => setIsMenuOpen(false)}
-      >
-        All Recipes
-      </NavLink>
-      <NavLink
-        to="/add-recipes"
-        className="hover:text-orange-500"
-        onClick={() => setIsMenuOpen(false)}
-      >
-        Add Recipes
-      </NavLink>
-      <NavLink
-        to="/my-recipes"
-        className="hover:text-orange-500"
-        onClick={() => setIsMenuOpen(false)}
-      >
-        My Recipes
-      </NavLink>
-      {user && (
-        <>
-          <NavLink
-            to="/add-recipe"
-            className="hover:text-orange-500"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Add Recipe
-          </NavLink>
-          <NavLink
-            to="/my-recipes"
-            className="hover:text-orange-500"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            My Recipes
-          </NavLink>
-        </>
-      )}
-    </>
-  );
+  <>
+    <NavLink
+      to="/"
+      className={({ isActive }) =>
+        isActive ? "text-orange-500 font-semibold underline" : "hover:text-orange-500"
+      }
+      onClick={() => setIsMenuOpen(false)}
+    >
+      Home
+    </NavLink>
+    <NavLink
+      to="/all-recipes"
+      className={({ isActive }) =>
+        isActive ? "text-orange-500 font-semibold underline" : "hover:text-orange-500"
+      }
+      onClick={() => setIsMenuOpen(false)}
+    >
+      All Recipes
+    </NavLink>
+    <NavLink
+      to="/add-recipes"
+      className={({ isActive }) =>
+        isActive ? "text-orange-500 font-semibold underline" : "hover:text-orange-500"
+      }
+      onClick={() => setIsMenuOpen(false)}
+    >
+      Add Recipes
+    </NavLink>
+    <NavLink
+      to="/my-recipes"
+      className={({ isActive }) =>
+        isActive ? "text-orange-500 font-semibold underline" : "hover:text-orange-500"
+      }
+      onClick={() => setIsMenuOpen(false)}
+    >
+      My Recipes
+    </NavLink>
+    {user && (
+      <>
+        <NavLink
+          to="/add-recipe"
+          className={({ isActive }) =>
+            isActive ? "text-orange-500 font-semibold underline" : "hover:text-orange-500"
+          }
+          onClick={() => setIsMenuOpen(false)}
+        >
+          Add Recipe
+        </NavLink>
+        <NavLink
+          to="/my-recipes"
+          className={({ isActive }) =>
+            isActive ? "text-orange-500 font-semibold underline" : "hover:text-orange-500"
+          }
+          onClick={() => setIsMenuOpen(false)}
+        >
+          My Recipes
+        </NavLink>
+      </>
+    )}
+  </>
+);
+
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
