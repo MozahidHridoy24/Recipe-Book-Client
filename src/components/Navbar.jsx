@@ -1,33 +1,59 @@
-// src/components/Navbar.jsx
-import { Link, NavLink } from "react-router";
-import { useContext } from "react";
-import { FaUserCircle } from "react-icons/fa";
+import { useState, useContext } from "react";
+import { Link, NavLink } from "react-router"; // ✅ Ensure correct router
 import { FiLogOut } from "react-icons/fi";
+import { HiMenu, HiX } from "react-icons/hi";
 import { AuthContext } from "./Contexts/AuthContext";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = (
     <>
-      <NavLink to="/" className="hover:text-orange-500">
+      <NavLink
+        to="/"
+        className="hover:text-orange-500"
+        onClick={() => setIsMenuOpen(false)}
+      >
         Home
       </NavLink>
-      <NavLink to="/all-recipes" className="hover:text-orange-500">
+      <NavLink
+        to="/all-recipes"
+        className="hover:text-orange-500"
+        onClick={() => setIsMenuOpen(false)}
+      >
         All Recipes
       </NavLink>
-      <NavLink to="/add-recipes" className="hover:text-orange-500">
+      <NavLink
+        to="/add-recipes"
+        className="hover:text-orange-500"
+        onClick={() => setIsMenuOpen(false)}
+      >
         Add Recipes
       </NavLink>
-      <NavLink to="/my-recipes" className="hover:text-orange-500">
+      <NavLink
+        to="/my-recipes"
+        className="hover:text-orange-500"
+        onClick={() => setIsMenuOpen(false)}
+      >
         My Recipes
       </NavLink>
       {user && (
         <>
-          <NavLink to="/add-recipe" className="hover:text-orange-500">
+          <NavLink
+            to="/add-recipe"
+            className="hover:text-orange-500"
+            onClick={() => setIsMenuOpen(false)}
+          >
             Add Recipe
           </NavLink>
-          <NavLink to="/my-recipes" className="hover:text-orange-500">
+          <NavLink
+            to="/my-recipes"
+            className="hover:text-orange-500"
+            onClick={() => setIsMenuOpen(false)}
+          >
             My Recipes
           </NavLink>
         </>
@@ -38,15 +64,27 @@ const Navbar = () => {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-orange-500">
-          Recipe Book
-        </Link>
+        {/* ✅ Left section: Menu icon + Logo */}
+        <div className="flex items-center gap-4">
+          {/* Menu Icon (Mobile only) */}
+          <div className="md:hidden">
+            <button onClick={toggleMenu} className="text-2xl text-orange-500">
+              {isMenuOpen ? <HiX /> : <HiMenu />}
+            </button>
+          </div>
 
-        {/* Navigation Links */}
-        <nav className="flex gap-6 text-gray-700 font-medium">{navLinks}</nav>
+          {/* Logo */}
+          <Link to="/" className="text-2xl font-bold text-orange-500">
+            Recipe Book
+          </Link>
+        </div>
 
-        {/* Auth Buttons */}
+        {/* ✅ Desktop Nav Links */}
+        <nav className="hidden md:flex gap-6 text-gray-700 font-medium">
+          {navLinks}
+        </nav>
+
+        {/* ✅ Right section: Auth Buttons */}
         <div className="flex items-center gap-3">
           {!user ? (
             <>
@@ -64,7 +102,7 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-2">
               <img
                 src={
                   user.photoURL ||
@@ -84,6 +122,26 @@ const Navbar = () => {
           )}
         </div>
       </div>
+
+      {/* ✅ Mobile Dropdown Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t shadow px-6 py-4 w-full text-left">
+          <nav className="flex flex-col gap-3 text-gray-700 font-medium">
+            {navLinks}
+            {user && (
+              <button
+                onClick={() => {
+                  logout();
+                  setIsMenuOpen(false);
+                }}
+                className="text-red-500 flex items-center gap-1"
+              >
+                <FiLogOut /> Logout
+              </button>
+            )}
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
