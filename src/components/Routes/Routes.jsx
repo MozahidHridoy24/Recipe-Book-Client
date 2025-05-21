@@ -8,6 +8,7 @@ import Register from "../Register";
 import AddRecipe from "../Pages/AddRecipe";
 import AllRecipes from "../Pages/AllRecipes";
 import PrivateRoute from "../Contexts/PrivateRoute";
+import MyRecipes from "../Pages/MyRecipes";
 
 export const router = createBrowserRouter([
   {
@@ -15,27 +16,40 @@ export const router = createBrowserRouter([
     element: <MainLayout></MainLayout>,
     errorElement: <ErrorPage></ErrorPage>,
 
-    children: [{
+    children: [
+      {
         index: true,
-        path: '/',
-        element : <Home></Home>
-    },
-    {
-        path:'/login',
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/login",
         element: <Login></Login>,
-    },
-    {
-        path:'/register',
-        element: <Register></Register>
-    },
-    {
-        path:'/add-recipes',
-        element: <PrivateRoute><AddRecipe></AddRecipe></PrivateRoute>,
-    },
-    {
-        path:'/all-recipes',
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/add-recipes",
+        element: (
+          <PrivateRoute>
+            <AddRecipe></AddRecipe>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/all-recipes",
         element: <AllRecipes></AllRecipes>,
-    },
-],
+      },
+      {
+        path: "/my-recipes",
+        element: (
+          <PrivateRoute>
+            <MyRecipes></MyRecipes>
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
 ]);
