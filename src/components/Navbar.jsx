@@ -48,28 +48,7 @@ const Navbar = () => {
     >
       My Recipes
     </NavLink>
-    {user && (
-      <>
-        <NavLink
-          to="/add-recipe"
-          className={({ isActive }) =>
-            isActive ? "text-orange-500 font-semibold underline" : "hover:text-orange-500"
-          }
-          onClick={() => setIsMenuOpen(false)}
-        >
-          Add Recipe
-        </NavLink>
-        <NavLink
-          to="/my-recipes"
-          className={({ isActive }) =>
-            isActive ? "text-orange-500 font-semibold underline" : "hover:text-orange-500"
-          }
-          onClick={() => setIsMenuOpen(false)}
-        >
-          My Recipes
-        </NavLink>
-      </>
-    )}
+  
   </>
 );
 
