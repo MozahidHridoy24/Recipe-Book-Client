@@ -1,12 +1,33 @@
-# React + Vite
+# 🍽️ Recipe Book
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Recipe Book** – your go-to platform to explore, share, and manage recipes from around the world!
 
-Currently, two official plugins are available:
+🔗 **Live Site:** [https://your-recipe-book-app.netlify.app](https://your-recipe-book-app.netlify.app) <!-- Replace with your actual deployed URL -->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌟 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔍 **Browse Recipes by Cuisine:** Filter and explore recipes by cuisine type like Italian, Mexican, Indian, and more.
+- 💡 **Theme Toggle:** Switch between multiple themes (light, dark, cupcake, etc.) using DaisyUI integration.
+- 📸 **Image Upload & Recipe Creation:** Add new recipes with images, ingredients, instructions, and categories.
+- 🎨 **Responsive Design:** Fully mobile-responsive and styled with Tailwind CSS and DaisyUI.
+- 📊 **Top Recipes Section:** Automatically displays top liked recipes on the homepage.
+- 🔐 **Authentication:** Secure login and registration using Firebase Authentication (Email/Password + Google).
+- ❤️ **Like System:** Users can like and engage with recipes they enjoy.
+- 🧠 **Lottie Animations & Typewriter Effects:** Enhanced UI with modern animations and text transitions.
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** + **Vite**
+- **Tailwind CSS** + **DaisyUI**
+- **MongoDB** (via Express backend)
+- **Firebase Authentication**
+- **React Router**
+- **Lottie React**, **React Simple Typewriter**
+
+---
+
+Feel free to fork this project and build your own cooking experience!

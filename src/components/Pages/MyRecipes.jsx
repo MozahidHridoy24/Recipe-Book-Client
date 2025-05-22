@@ -125,10 +125,17 @@ const MyRecipes = () => {
                 <span className="font-semibold">Preparation Time:</span>{" "}
                 {recipe.preparationTime} mins
               </p>
-              <p>
-                <span className="font-semibold">Categories:</span>{" "}
-                {recipe.categories} mins
-              </p>
+              <div className="flex flex-wrap gap-2 mt-2">
+                <h1 className="font-semibold">Category :</h1>
+  {recipe.categories?.map((category, index) => (
+    <button
+      key={index}
+      className="px-4 py-1 text-sm bg-orange-100 text-orange-700 rounded-full border border-orange-300 hover:bg-orange-200 transition"
+    >
+      {category}
+    </button>
+  ))}
+</div>
               <p>
                 <span className="font-semibold">Likes:</span>{" "}
                 {recipe.likes || 0}
