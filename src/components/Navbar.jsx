@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router";
 import { FiLogOut } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";
 import { AuthContext } from "./Contexts/AuthContext";
+import { FaBookOpenReader } from "react-icons/fa6";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -11,47 +12,53 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = (
-  <>
-    <NavLink
-      to="/"
-      className={({ isActive }) =>
-        isActive ? "text-orange-500 font-semibold underline" : "hover:text-orange-500"
-      }
-      onClick={() => setIsMenuOpen(false)}
-    >
-      Home
-    </NavLink>
-    <NavLink
-      to="/all-recipes"
-      className={({ isActive }) =>
-        isActive ? "text-orange-500 font-semibold underline" : "hover:text-orange-500"
-      }
-      onClick={() => setIsMenuOpen(false)}
-    >
-      All Recipes
-    </NavLink>
-    <NavLink
-      to="/add-recipes"
-      className={({ isActive }) =>
-        isActive ? "text-orange-500 font-semibold underline" : "hover:text-orange-500"
-      }
-      onClick={() => setIsMenuOpen(false)}
-    >
-      Add Recipes
-    </NavLink>
-    <NavLink
-      to="/my-recipes"
-      className={({ isActive }) =>
-        isActive ? "text-orange-500 font-semibold underline" : "hover:text-orange-500"
-      }
-      onClick={() => setIsMenuOpen(false)}
-    >
-      My Recipes
-    </NavLink>
-  
-  </>
-);
-
+    <>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive
+            ? "text-orange-500 font-semibold underline"
+            : "hover:text-orange-500"
+        }
+        onClick={() => setIsMenuOpen(false)}
+      >
+        Home
+      </NavLink>
+      <NavLink
+        to="/all-recipes"
+        className={({ isActive }) =>
+          isActive
+            ? "text-orange-500 font-semibold underline"
+            : "hover:text-orange-500"
+        }
+        onClick={() => setIsMenuOpen(false)}
+      >
+        All Recipes
+      </NavLink>
+      <NavLink
+        to="/add-recipes"
+        className={({ isActive }) =>
+          isActive
+            ? "text-orange-500 font-semibold underline"
+            : "hover:text-orange-500"
+        }
+        onClick={() => setIsMenuOpen(false)}
+      >
+        Add Recipes
+      </NavLink>
+      <NavLink
+        to="/my-recipes"
+        className={({ isActive }) =>
+          isActive
+            ? "text-orange-500 font-semibold underline"
+            : "hover:text-orange-500"
+        }
+        onClick={() => setIsMenuOpen(false)}
+      >
+        My Recipes
+      </NavLink>
+    </>
+  );
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -66,8 +73,13 @@ const Navbar = () => {
           </div>
 
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-orange-500">
-            Recipe Book
+          <Link
+            to="/"
+            className="flex items-center space-x-1 text-2xl font-bold text-orange-500"
+          >
+            <span>Recipe</span>
+            <FaBookOpenReader className="text-3xl text-blue-500" />
+            <span>Book</span>
           </Link>
         </div>
 

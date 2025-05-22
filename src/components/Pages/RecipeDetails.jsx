@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { toast } from "react-toastify";
 import { AuthContext } from "../Contexts/AuthContext";
+import Spinner from "../Spinner";
 
 const RecipeDetails = () => {
-    const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [likeCount, setLikeCount] = useState(0);
@@ -26,11 +27,9 @@ const RecipeDetails = () => {
         setLoading(false);
       });
   }, [id]);
-  
 
   const handleLike = async () => {
     if (user.email === recipe.userEmail) {
-      
       toast.warning("🚫 You can't like your own recipe!");
       return;
     }
@@ -55,7 +54,7 @@ const RecipeDetails = () => {
     }
   };
 
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
+  if (loading) return <Spinner></Spinner>;
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
