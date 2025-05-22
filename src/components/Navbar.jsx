@@ -106,7 +106,7 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            <div className="hidden md:flex items-center gap-2">
+            <div className="flex items-center gap-2">
               <img
                 src={
                   user.photoURL ||
@@ -132,17 +132,7 @@ const Navbar = () => {
         <div className="md:hidden bg-white border-t shadow px-6 py-4 w-full text-left">
           <nav className="flex flex-col gap-3 text-gray-700 font-medium">
             {navLinks}
-            {user && (
-              <button
-                onClick={() => {
-                  logout();
-                  setIsMenuOpen(false);
-                }}
-                className="text-red-500 flex items-center gap-1"
-              >
-                <FiLogOut /> Logout
-              </button>
-            )}
+            
           </nav>
         </div>
       )}

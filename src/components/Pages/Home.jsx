@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import Banner from "../Banner";
 import Spinner from "../Spinner";
+import ThemeToggle from "../Utility/ThemeToggle";
 
 const Home = () => {
   const [topRecipes, setTopRecipes] = useState([]);
@@ -25,7 +26,10 @@ const Home = () => {
 
   return (
     <>
-      <Banner />
+    <div>
+        <ThemeToggle></ThemeToggle>
+    </div>
+      <Banner></Banner>
 
       {/* Top Recipes Section */}
       <section className="py-12 bg-gray-100">
@@ -48,7 +52,9 @@ const Home = () => {
                     alt={recipe.title}
                     className="w-full h-48 object-cover rounded-md mb-4"
                   />
-                  <h3 className="text-xl font-semibold mb-2">{recipe.title}</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-orange-600">
+                    {recipe.title}
+                  </h3>
                   <p className="text-gray-600 mb-1">
                     <strong>Cuisine:</strong> {recipe.cuisine}
                   </p>

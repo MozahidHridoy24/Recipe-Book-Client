@@ -54,14 +54,14 @@ const AllRecipes = () => {
 
       {/* Dropdown for cuisine filter */}
       <div className="mb-6 text-center">
-        <label className="mr-2 font-semibold text-gray-700">Filter by Cuisine:</label>
+        <label className="mr-2 font-semibold ">Filter by Cuisine:</label>
         <select
           value={cuisineFilter}
           onChange={handleFilterChange}
           className="border border-gray-300 rounded px-3 py-1"
         >
           {cuisineOptions.map((cuisine) => (
-            <option key={cuisine} value={cuisine}>
+            <option className="text-black" key={cuisine} value={cuisine}>
               {cuisine}
             </option>
           ))}
