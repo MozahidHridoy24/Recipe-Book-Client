@@ -86,7 +86,11 @@ const MyRecipes = () => {
   };
 
   if (loading)
-    return <div ><Spinner></Spinner></div>;
+    return (
+      <div>
+        <Spinner></Spinner>
+      </div>
+    );
 
   return (
     <div className="p-4 max-w-7xl mx-auto">
@@ -100,7 +104,6 @@ const MyRecipes = () => {
             className="card bg-white rounded-xl shadow-md overflow-hidden border"
           >
             <img
-           
               src={recipe.image || "https://via.placeholder.com/400x200"}
               alt={recipe.title}
               className="w-full h-48 object-cover"
@@ -113,11 +116,12 @@ const MyRecipes = () => {
                 <span className="font-semibold">Cuisine:</span> {recipe.cuisine}
               </p>
               <p>
-                <span className="font-semibold">Preparation Time:</span> {" "}
+                <span className="font-semibold">Preparation Time:</span>{" "}
                 {recipe.preparationTime} mins
               </p>
               <p>
-                <span className="font-semibold">Likes:</span> {recipe.likes || 0}
+                <span className="font-semibold">Likes:</span>{" "}
+                {recipe.likes || 0}
               </p>
               <div className="flex gap-2 mt-2">
                 <button
@@ -142,7 +146,9 @@ const MyRecipes = () => {
       {selectedRecipe && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white rounded-lg p-6 w-full max-w-lg relative">
-            <h3 className="text-xl font-bold mb-4 text-orange-600">Update Recipe</h3>
+            <h3 className="text-xl font-bold mb-4 text-orange-600">
+              Update Recipe
+            </h3>
             <form onSubmit={handleUpdate} className="space-y-3">
               <input
                 type="text"
