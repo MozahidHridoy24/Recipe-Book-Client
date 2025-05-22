@@ -1,4 +1,3 @@
-import { div } from "motion/react-client";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import Spinner from "../Spinner";
@@ -62,7 +61,7 @@ const AllRecipes = () => {
                 to={`/recipes/${recipe._id}`}
                 className="mt-auto btn btn-sm bg-orange-500 text-white hover:bg-orange-600"
               >
-                See Details
+                View Details
               </Link>
             </div>
           </div>
