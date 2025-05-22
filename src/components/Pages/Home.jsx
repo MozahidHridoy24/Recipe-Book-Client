@@ -26,9 +26,9 @@ const Home = () => {
 
   return (
     <>
-    <div>
+      <div>
         <ThemeToggle></ThemeToggle>
-    </div>
+      </div>
       <Banner></Banner>
 
       {/* Top Recipes Section */}
@@ -73,12 +73,18 @@ const Home = () => {
           )}
 
           <div className="text-center mt-10">
-            <Link
-              to="/all-recipes"
-              className="inline-block px-6 py-2 bg-amber-500 text-white font-medium rounded hover:bg-amber-600"
+            {/* Using tooltip */}
+            <div
+              className="tooltip tooltip-top before:bg-orange-500 before:text-white before:px-3 before:py-1 before:rounded-md before:shadow-lg"
+              data-tip="Explore all available recipes"
             >
-              See All Recipes
-            </Link>
+              <Link
+                to="/all-recipes"
+                className="inline-block px-6 py-2 bg-gradient-to-r from-orange-400 to-orange-600 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+              >
+                See All Recipes
+              </Link>
+            </div>
           </div>
         </div>
       </section>

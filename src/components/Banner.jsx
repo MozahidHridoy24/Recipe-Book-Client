@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import banner1 from "../assets/banner-1.jpg";
 import banner2 from "../assets/banner-2.jpg";
 import banner3 from "../assets/banner-3.jpg";
+import { Typewriter } from "react-simple-typewriter";
 
 // All banner images
 const images = [banner1, banner2, banner3];
@@ -37,8 +38,23 @@ const Banner = () => {
 
           {/* Overlay Text */}
           <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white p-4">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">
-              Discover & Share Amazing Recipes
+            <h1 className="text-4xl font-bold text-center text-orange-500 mb-4">
+              {" "}
+              <span className="text-orange-600">
+                <Typewriter
+                  words={[
+                    "Welcome to Recipe Book",
+                    "Explore Tasty Meals",
+                    "Cook & Share",
+                  ]}
+                  loop={0}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                />
+              </span>
             </h1>
             <p className="mb-6 max-w-xl">
               Explore a world of flavors, from traditional dishes to creative
