@@ -8,10 +8,13 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/recipes/top")
+    fetch("http://localhost:3000/recipes")
       .then((res) => res.json())
       .then((data) => {
-        setTopRecipes(data);
+        const sortedRecipes = data.sort(
+          (a, b) => (b.likes || 0) - (a.likes || 0)
+        ); // Sort by likes descending
+        setTopRecipes(sortedRecipes);
         setLoading(false);
       })
       .catch((err) => {
@@ -27,14 +30,19 @@ const Home = () => {
       {/* Top Recipes Section */}
       <section className="py-12 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-orange-500 mb-8">Top Recipes</h2>
+          <h2 className="text-3xl font-bold text-center text-orange-500 mb-8">
+            Top Recipes
+          </h2>
 
           {loading ? (
             <Spinner />
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {topRecipes.map((recipe) => (
-                <div key={recipe._id} className="bg-white rounded-xl shadow p-4">
+                <div
+                  key={recipe._id}
+                  className="bg-white rounded-xl shadow p-4"
+                >
                   <img
                     src={recipe.image || "https://via.placeholder.com/300x200"}
                     alt={recipe.title}
@@ -72,10 +80,13 @@ const Home = () => {
       {/* Extra Section 1: About Us */}
       <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-3xl font-bold text-orange-500 mb-4">Welcome to Recipe Book</h2>
+          <h2 className="text-3xl font-bold text-orange-500 mb-4">
+            Welcome to Recipe Book
+          </h2>
           <p className="text-gray-600">
-            Discover, share, and save your favorite recipes from around the world. Whether you're
-            a beginner or a seasoned chef, our platform is built to inspire and empower your cooking journey.
+            Discover, share, and save your favorite recipes from around the
+            world. Whether you're a beginner or a seasoned chef, our platform is
+            built to inspire and empower your cooking journey.
           </p>
         </div>
       </section>
@@ -83,19 +94,27 @@ const Home = () => {
       {/* Extra Section 2: Features */}
       <section className="py-12 bg-gray-100">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-orange-500 mb-10">Why Choose Us?</h2>
+          <h2 className="text-3xl font-bold text-center text-orange-500 mb-10">
+            Why Choose Us?
+          </h2>
           <div className="grid md:grid-cols-3 gap-6 text-center">
             <div className="p-6 bg-white rounded shadow">
               <h3 className="text-xl font-semibold mb-2">Diverse Recipes</h3>
-              <p className="text-gray-600">Explore hundreds of recipes from different cultures and diets.</p>
+              <p className="text-gray-600">
+                Explore hundreds of recipes from different cultures and diets.
+              </p>
             </div>
             <div className="p-6 bg-white rounded shadow">
               <h3 className="text-xl font-semibold mb-2">User-Friendly</h3>
-              <p className="text-gray-600">Easily upload, edit, and save your favorite meals.</p>
+              <p className="text-gray-600">
+                Easily upload, edit, and save your favorite meals.
+              </p>
             </div>
             <div className="p-6 bg-white rounded shadow">
               <h3 className="text-xl font-semibold mb-2">Community Driven</h3>
-              <p className="text-gray-600">Get inspired by top-rated recipes loved by our community.</p>
+              <p className="text-gray-600">
+                Get inspired by top-rated recipes loved by our community.
+              </p>
             </div>
           </div>
         </div>
