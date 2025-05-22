@@ -113,11 +113,21 @@ const MyRecipes = () => {
                 {recipe.title}
               </h3>
               <p>
+                <span className="font-semibold">Ingredients:</span> {recipe.ingredients}
+              </p>
+              <p>
+                <span className="font-semibold">Instructions:</span> {recipe.instructions}
+              </p>
+              <p>
                 <span className="font-semibold">Cuisine:</span> {recipe.cuisine}
               </p>
               <p>
                 <span className="font-semibold">Preparation Time:</span>{" "}
                 {recipe.preparationTime} mins
+              </p>
+              <p>
+                <span className="font-semibold">Categories:</span>{" "}
+                {recipe.categories} mins
               </p>
               <p>
                 <span className="font-semibold">Likes:</span>{" "}

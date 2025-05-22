@@ -32,7 +32,7 @@ const Home = () => {
       <Banner></Banner>
 
       {/* Top Recipes Section */}
-      <section className="py-12 bg-gray-100">
+      <section className="py-12 ">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-orange-500 mb-8">
             Top Recipes
@@ -45,7 +45,7 @@ const Home = () => {
               {topRecipes.map((recipe) => (
                 <div
                   key={recipe._id}
-                  className="bg-white rounded-xl shadow p-4"
+                  className="bg-white rounded-xl shadow p-4 border border-amber-500"
                 >
                   <img
                     src={recipe.image || "https://via.placeholder.com/300x200"}
@@ -90,12 +90,12 @@ const Home = () => {
       </section>
 
       {/* Extra Section 1: About Us */}
-      <section className="py-12 bg-white">
-        <div className="max-w-4xl mx-auto text-center px-4">
+      <section className="py-12  ">
+        <div className="max-w-6xl mx-auto text-center px-20 rounded-xl shadow">
           <h2 className="text-3xl font-bold text-orange-500 mb-4">
             Welcome to Recipe Book
           </h2>
-          <p className="text-gray-600">
+          <p className="text-gray-600 p-6">
             Discover, share, and save your favorite recipes from around the
             world. Whether you're a beginner or a seasoned chef, our platform is
             built to inspire and empower your cooking journey.
@@ -104,26 +104,26 @@ const Home = () => {
       </section>
 
       {/* Extra Section 2: Features */}
-      <section className="py-12 bg-gray-100">
+      <section className="py-12 ">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-orange-500 mb-10">
             Why Choose Us?
           </h2>
           <div className="grid md:grid-cols-3 gap-6 text-center">
             <div className="p-6 bg-white rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">Diverse Recipes</h3>
+              <h3 className="text-xl font-semibold mb-2 text-black">Diverse Recipes</h3>
               <p className="text-gray-600">
                 Explore hundreds of recipes from different cultures and diets.
               </p>
             </div>
             <div className="p-6 bg-white rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">User-Friendly</h3>
+              <h3 className="text-xl font-semibold mb-2 text-black">User-Friendly</h3>
               <p className="text-gray-600">
                 Easily upload, edit, and save your favorite meals.
               </p>
             </div>
             <div className="p-6 bg-white rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">Community Driven</h3>
+              <h3 className="text-xl font-semibold mb-2 text-black">Community Driven</h3>
               <p className="text-gray-600">
                 Get inspired by top-rated recipes loved by our community.
               </p>
