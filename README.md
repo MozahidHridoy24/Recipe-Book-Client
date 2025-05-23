@@ -26,7 +26,7 @@ Welcome to **Recipe Book** – your go-to platform to explore, share, and manage
 - **MongoDB** (via Express backend)
 - **Firebase Authentication**
 - **React Router**
-- **Lottie React**, **React Simple Typewriter**
+- **React Tooltip**, **React Simple Typewriter**
 
 ---
 

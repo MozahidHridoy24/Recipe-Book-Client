@@ -73,25 +73,25 @@ const AllRecipes = () => {
         {filteredRecipes.map((recipe) => (
           <div
             key={recipe._id}
-            className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col"
+            className="bg-base-100 text-base-content border border-white rounded-lg shadow-md overflow-hidden flex flex-col"
           >
             <img
               src={recipe.image}
               alt={recipe.title}
-              className="h-48 w-full object-cover"
+              className="h-48 w-full object-cover p-2 rounded-xl"
             />
             <div className="p-4 flex flex-col flex-grow">
               <h3 className="text-lg font-bold text-orange-600 mb-1">
                 {recipe.title}
               </h3>
-              <p className="text-sm text-gray-600 mb-1">
+              <p className="text-sm mb-1">
                 <span className="font-semibold">Cuisine:</span> {recipe.cuisine}
               </p>
-              <p className="text-sm text-gray-600 mb-1">
-                <span className="font-semibold">Prep Time:</span>{" "}
-                {recipe.prepTime} mins
+              <p className="text-sm mb-1">
+                <span className="font-semibold">Prep Time: </span>
+                {recipe.preparationTime} mins
               </p>
-              <p className="text-sm text-gray-600 mb-3">
+              <p className="text-sm mb-3">
                 <span className="font-semibold">Likes:</span> {recipe.likes}
               </p>
               <Link

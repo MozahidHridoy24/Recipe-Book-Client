@@ -1,12 +1,17 @@
 // src/components/Footer.jsx
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaBookOpenReader } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 text-gray-700 py-6 mt-10">
+    <footer className="bg-base-100 text-base-content py-8 mt-16 shadow-[0_-4px_12px_rgba(0,0,0,0.1)] border-t border-base-300">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
         {/* Website Name */}
-        <h2 className="text-xl font-semibold text-orange-500">Recipe Book</h2>
+        <h2 className="flex items-center gap-1 text-xl font-semibold text-orange-500">
+          Recipe
+          <FaBookOpenReader className="text-3xl text-blue-500" />
+          Book
+        </h2>
 
         {/* Contact Info */}
         <div className="text-center">
@@ -16,9 +21,15 @@ const Footer = () => {
 
         {/* Social Icons */}
         <div className="flex gap-4 text-orange-500 text-xl">
-          <a href="#"><FaFacebook /></a>
-          <a href="#"><FaInstagram /></a>
-          <a href="#"><FaTwitter /></a>
+          <a href="#">
+            <FaFacebook />
+          </a>
+          <a href="#">
+            <FaInstagram />
+          </a>
+          <a href="#">
+            <FaTwitter />
+          </a>
         </div>
       </div>
     </footer>

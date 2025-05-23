@@ -101,22 +101,24 @@ const MyRecipes = () => {
         {recipes.map((recipe) => (
           <div
             key={recipe._id}
-            className="card bg-white rounded-xl shadow-md overflow-hidden border"
+            className="card bg-base-100 text-base-content border border-white shadow-md"
           >
             <img
               src={recipe.image || "https://via.placeholder.com/400x200"}
               alt={recipe.title}
-              className="w-full h-48 object-cover"
+              className="w-full h-48 object-cover p-2 rounded-xl"
             />
             <div className="p-4 space-y-2">
               <h3 className="text-xl font-semibold text-orange-600">
                 {recipe.title}
               </h3>
               <p>
-                <span className="font-semibold">Ingredients:</span> {recipe.ingredients}
+                <span className="font-semibold">Ingredients:</span>{" "}
+                {recipe.ingredients}
               </p>
               <p>
-                <span className="font-semibold">Instructions:</span> {recipe.instructions}
+                <span className="font-semibold">Instructions:</span>{" "}
+                {recipe.instructions}
               </p>
               <p>
                 <span className="font-semibold">Cuisine:</span> {recipe.cuisine}
@@ -125,17 +127,9 @@ const MyRecipes = () => {
                 <span className="font-semibold">Preparation Time:</span>{" "}
                 {recipe.preparationTime} mins
               </p>
-              <div className="flex flex-wrap gap-2 mt-2">
-                <h1 className="font-semibold">Category :</h1>
-  {recipe.categories?.map((category, index) => (
-    <button
-      key={index}
-      className="px-4 py-1 text-sm bg-orange-100 text-orange-700 rounded-full border border-orange-300 hover:bg-orange-200 transition"
-    >
-      {category}
-    </button>
-  ))}
-</div>
+              <p>
+                <strong>Categories:</strong> {recipe.categories?.join(", ")}
+              </p>
               <p>
                 <span className="font-semibold">Likes:</span>{" "}
                 {recipe.likes || 0}
@@ -162,7 +156,7 @@ const MyRecipes = () => {
       {/* Modal */}
       {selectedRecipe && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white rounded-lg p-6 w-full max-w-lg relative">
+          <div className="bg-base-100 text-base-content rounded-lg p-6 w-full max-w-lg relative">
             <h3 className="text-xl font-bold mb-4 text-orange-600">
               Update Recipe
             </h3>

@@ -4,6 +4,7 @@ import { FiLogOut } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";
 import { AuthContext } from "./Contexts/AuthContext";
 import { FaBookOpenReader } from "react-icons/fa6";
+import ThemeToggle from "./Utility/ThemeToggle";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -61,9 +62,9 @@ const Navbar = () => {
   );
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className="bg-base-100 text-base-content shadow-[0_4px_12px_rgba(0,0,0,0.08)] sticky top-0 z-50 border-b border-base-300">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        {/* ✅ Left section: Menu icon + Logo */}
+        {/* Left section: Menu icon + Logo */}
         <div className="flex items-center gap-4">
           {/* Menu Icon (Mobile only) */}
           <div className="md:hidden">
@@ -84,12 +85,13 @@ const Navbar = () => {
         </div>
 
         {/* ✅ Desktop Nav Links */}
-        <nav className="hidden md:flex gap-6 text-gray-700 font-medium">
-          {navLinks}
-        </nav>
+        <nav className="hidden md:flex gap-6  font-medium">{navLinks}</nav>
 
         {/* ✅ Right section: Auth Buttons */}
         <div className="flex items-center gap-3">
+          <div>
+            <ThemeToggle></ThemeToggle>
+          </div>
           {!user ? (
             <>
               <Link
@@ -132,7 +134,6 @@ const Navbar = () => {
         <div className="md:hidden bg-white border-t shadow px-6 py-4 w-full text-left">
           <nav className="flex flex-col gap-3 text-gray-700 font-medium">
             {navLinks}
-            
           </nav>
         </div>
       )}
