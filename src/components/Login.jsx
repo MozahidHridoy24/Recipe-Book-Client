@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router";
-import { AuthContext } from "../Contexts/AuthContext";
+import { AuthContext } from "./Contexts/AuthContext";
 
 const Login = () => {
   const { login, googleLogin } = useContext(AuthContext);
@@ -36,7 +36,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
-      <div className="w-full max-w-md shadow-lg bg-white p-8 rounded-lg">
+      <div className="w-full max-w-md shadow-lg bg-base-100 text-base-content p-4 rounded-lg">
         <h2 className="text-2xl font-bold mb-6 text-center text-orange-500">
           Login to Recipe Book
         </h2>
@@ -67,7 +67,7 @@ const Login = () => {
               className="input input-bordered w-full"
             />
             <a href="" target="_blank">
-              <p className="text-xs text-black">Forget password?</p>
+              <p className="text-xs">Forget password?</p>
             </a>
           </div>
 
@@ -81,10 +81,13 @@ const Login = () => {
           </button>
         </form>
 
-        <div className="divider text-black">OR</div>
+        <div className="divider">OR</div>
 
         {/* Google */}
-        <button onClick={handleGoogleLogin} className="btn bg-white text-black border-[#e5e5e5] w-full">
+        <button
+          onClick={handleGoogleLogin}
+          className="btn border-amber-500 w-full"
+        >
           <svg
             aria-label="Google logo"
             width="16"

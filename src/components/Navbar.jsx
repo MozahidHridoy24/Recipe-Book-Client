@@ -58,6 +58,17 @@ const Navbar = () => {
       >
         My Recipes
       </NavLink>
+      <NavLink
+        to="/register"
+        className={({ isActive }) =>
+          isActive
+            ? "text-orange-500 font-semibold underline"
+            : "hover:text-orange-500"
+        }
+        onClick={() => setIsMenuOpen(false)}
+      >
+        Register
+      </NavLink>
     </>
   );
 
@@ -84,10 +95,10 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* ✅ Desktop Nav Links */}
+        {/* Desktop Nav Links */}
         <nav className="hidden md:flex gap-6  font-medium">{navLinks}</nav>
 
-        {/* ✅ Right section: Auth Buttons */}
+        {/* Right section: Auth Buttons */}
         <div className="flex items-center gap-3">
           <div>
             <ThemeToggle></ThemeToggle>
@@ -102,7 +113,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/register"
-                className="btn btn-sm border border-orange-500 text-orange-500 px-4 py-1 rounded"
+                className="btn btn-sm border border-orange-500 text-orange-500 px-4 py-1 rounded hidden md:inline-block"
               >
                 Register
               </Link>
@@ -129,12 +140,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* ✅ Mobile Dropdown Menu */}
+      {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t shadow px-6 py-4 w-full text-left">
-          <nav className="flex flex-col gap-3 text-gray-700 font-medium">
-            {navLinks}
-          </nav>
+        <div className="md:hidden bg-base-100 text-base-content border-t shadow px-6 py-4 w-full text-left">
+          <nav className="flex flex-col gap-3  font-medium">{navLinks}</nav>
         </div>
       )}
     </header>
