@@ -93,7 +93,7 @@ const MyRecipes = () => {
     );
 
   return (
-    <div className="p-4 max-w-7xl mx-auto">
+    <div className="p-4 max-w-7xl mx-auto bg-base-200">
       <h2 className="text-3xl font-bold mb-6 text-center text-orange-500">
         My Recipes
       </h2>
@@ -101,12 +101,12 @@ const MyRecipes = () => {
         {recipes.map((recipe) => (
           <div
             key={recipe._id}
-            className="card bg-base-100 text-base-content border border-white shadow-md"
+            className="card bg-base-100 text-base-content border border-white shadow-md p-4"
           >
             <img
               src={recipe.image || "https://via.placeholder.com/400x200"}
               alt={recipe.title}
-              className="w-full h-48 object-cover p-2 rounded-xl"
+              className="w-full h-48 object-cover rounded-lg"
             />
             <div className="p-4 space-y-2">
               <h3 className="text-xl font-semibold text-orange-600">

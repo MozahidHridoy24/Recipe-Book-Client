@@ -1,6 +1,11 @@
 // src/components/Footer.jsx
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import { FaBookOpenReader } from "react-icons/fa6";
+import {
+  FaBookOpenReader,
+  FaGithub,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -21,14 +26,23 @@ const Footer = () => {
 
         {/* Social Icons */}
         <div className="flex gap-4 text-orange-500 text-xl">
-          <a href="#">
+          <a
+            href="https://www.facebook.com/mujahidulislam.hridoy"
+            target="blank"
+          >
             <FaFacebook />
           </a>
-          <a href="#">
-            <FaInstagram />
+          <a href="https://www.youtube.com/" target="blank">
+            <FaYoutube />
           </a>
-          <a href="#">
-            <FaTwitter />
+          <a href="https://github.com/MozahidHridoy24" target="blank">
+            <FaGithub />
+          </a>
+          <a
+            href="https://linkedin.com/in/mozahidul-islam-hridoy-118576228"
+            target="blank"
+          >
+            <FaLinkedinIn />
           </a>
         </div>
       </div>

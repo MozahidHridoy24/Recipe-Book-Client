@@ -61,9 +61,9 @@ const Navbar = () => {
       <NavLink
         to="/register"
         className={({ isActive }) =>
-          isActive
+          (isActive
             ? "text-orange-500 font-semibold underline"
-            : "hover:text-orange-500"
+            : "hover:text-orange-500") + " block md:hidden"
         }
         onClick={() => setIsMenuOpen(false)}
       >
@@ -143,7 +143,9 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-base-100 text-base-content border-t shadow px-6 py-4 w-full text-left">
-          <nav className="flex flex-col gap-3  font-medium">{navLinks}</nav>
+          <nav className="flex flex-col gap-3  font-medium">
+            {navLinks}
+          </nav>
         </div>
       )}
     </header>

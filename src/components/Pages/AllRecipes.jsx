@@ -47,7 +47,7 @@ const AllRecipes = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-7xl mx-auto px-4 py-10 bg-base-200">
       <h2 className="text-3xl font-bold text-center mb-8 text-orange-500">
         All Recipes
       </h2>
@@ -73,12 +73,12 @@ const AllRecipes = () => {
         {filteredRecipes.map((recipe) => (
           <div
             key={recipe._id}
-            className="bg-base-100 text-base-content border border-white rounded-lg shadow-md overflow-hidden flex flex-col"
+            className="bg-base-100 text-base-content border border-white rounded-lg p-4 shadow-md overflow-hidden flex flex-col"
           >
             <img
               src={recipe.image}
               alt={recipe.title}
-              className="h-48 w-full object-cover p-2 rounded-xl"
+              className="h-48 w-full object-cover rounded-xl"
             />
             <div className="p-4 flex flex-col flex-grow">
               <h3 className="text-lg font-bold text-orange-600 mb-1">

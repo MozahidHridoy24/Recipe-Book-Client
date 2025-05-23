@@ -26,11 +26,10 @@ const Home = () => {
 
   return (
     <>
-      
       <Banner></Banner>
 
       {/* Top Recipes Section */}
-      <section className="py-12 ">
+      <section className="py-12 bg-base-200">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-orange-500 mb-8">
             Top Recipes
@@ -87,23 +86,46 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Extra Section 1: About Us */}
-      <section className="py-12  ">
-        <div className="max-w-6xl mx-auto text-center px-20 rounded-xl shadow ">
-          <h2 className="text-3xl font-bold text-orange-500 mb-4">
-            Welcome to Recipe Book
+      {/* Extra Section: Our Achievements */}
+      <section className="py-12 bg-base-200 text-base-content mt-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center text-orange-500 mb-10">
+            Our Achievements
           </h2>
-          <p className="border border-white p-6 rounded-xl">
-            Discover, share, and save your favorite recipes from around the
-            world. Whether you're a beginner or a seasoned chef, our platform is
-            built to inspire and empower your cooking journey.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="bg-base-100 shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+              <h3 className="text-4xl font-bold text-orange-500 mb-2">10K+</h3>
+              <p className="text-lg font-semibold mb-1">Recipes Shared</p>
+              <p className="text-sm text-gray-500">
+                Curated by home cooks & chefs
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-base-100 shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+              <h3 className="text-4xl font-bold text-orange-500 mb-2">5K+</h3>
+              <p className="text-lg font-semibold mb-1">Active Users</p>
+              <p className="text-sm text-gray-500">
+                Cooking, rating & saving daily
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-base-100 shadow-lg rounded-xl p-6 text-center hover:shadow-xl transition">
+              <h3 className="text-4xl font-bold text-orange-500 mb-2">1M+</h3>
+              <p className="text-lg font-semibold mb-1">Likes & Favorites</p>
+              <p className="text-sm text-gray-500">
+                On delicious global recipes
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Extra Section 2: Features */}
-      <section className="py-12 ">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="py-12 bg-base-200 mt-16">
+        <div className="max-w-6xl mx-auto px-4 ">
           <h2 className="text-3xl font-bold text-center text-orange-500 mb-10">
             Why Choose Us?
           </h2>
