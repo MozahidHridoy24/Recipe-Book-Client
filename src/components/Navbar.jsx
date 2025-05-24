@@ -5,6 +5,7 @@ import { HiMenu, HiX } from "react-icons/hi";
 import { AuthContext } from "./Contexts/AuthContext";
 import { FaBookOpenReader } from "react-icons/fa6";
 import ThemeToggle from "./Utility/ThemeToggle";
+import userIcon from "../assets/user.png";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -121,17 +122,9 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              {/* ✅ Avatar with dropdown */}
+              {/*  Avatar with dropdown */}
               <img
-                src={
-                  user.photoURL || (
-                    <div className="avatar avatar-online avatar-placeholder">
-                      <div className="bg-neutral text-neutral-content w-16 rounded-full">
-                        <span className="text-xl">AI</span>
-                      </div>
-                    </div>
-                  )
-                }
+                src={user.photoURL || { userIcon }}
                 alt="avatar"
                 className="w-8 h-8 rounded-full ring-2 ring-orange-400 cursor-pointer"
                 onClick={() => setShowDropdown(!showDropdown)}
