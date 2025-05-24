@@ -2,7 +2,7 @@
 
 Welcome to **Recipe Book** – your go-to platform to explore, share, and manage recipes from around the world!
 
-🔗 **Live Site:** [https://your-recipe-book-app.netlify.app](https://your-recipe-book-app.netlify.app) <!-- Replace with your actual deployed URL -->
+🔗 **Live Site:** [https://recipe-book-24.surge.sh/](https://recipe-book-24.surge.sh/)
 
 ---
 

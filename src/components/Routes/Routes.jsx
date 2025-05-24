@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import MainLayout from "../Layouts/MainLayout";
-import { Children } from "react";
 import ErrorPage from "../ErrorPage";
 import Home from "../Pages/Home";
 import Register from "../Register";

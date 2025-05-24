@@ -11,7 +11,9 @@ const MyRecipes = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/recipes/user/${user.email}`)
+      fetch(
+        `https://recipe-book-app-server-blue.vercel.app/recipes/user/${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setRecipes(data);
@@ -35,7 +37,7 @@ const MyRecipes = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/recipes/${id}`, {
+        fetch(`https://recipe-book-app-server-blue.vercel.app/recipes/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -63,13 +65,16 @@ const MyRecipes = () => {
       categories: form.categories.value.split(","),
     };
 
-    fetch(`http://localhost:3000/recipes/${selectedRecipe._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedRecipe),
-    })
+    fetch(
+      `https://recipe-book-app-server-blue.vercel.app/recipes/${selectedRecipe._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedRecipe),
+      }
+    )
       .then((res) => res.json())
       .then(() => {
         Swal.fire("Success", "Recipe updated successfully", "success");

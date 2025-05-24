@@ -9,7 +9,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3000/recipes")
+    fetch("https://recipe-book-app-server-blue.vercel.app/recipes")
       .then((res) => res.json())
       .then((data) => {
         const sortedRecipes = data.sort(

@@ -41,12 +41,16 @@ const AddRecipe = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:3000/recipes", {
-        method: "POST",
-        headers: {
-             "Content-Type": "application/json"},
-        body: JSON.stringify(recipeData),
-      });
+      const res = await fetch(
+        "https://recipe-book-app-server-blue.vercel.app/recipes",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(recipeData),
+        }
+      );
       const data = await res.json();
       if (data.insertedId || data.acknowledged) {
         Swal.fire("Success!", "Recipe added successfully.", "success");

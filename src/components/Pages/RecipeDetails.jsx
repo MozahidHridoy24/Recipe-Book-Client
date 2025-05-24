@@ -15,7 +15,7 @@ const RecipeDetails = () => {
 
   // Fetch recipe details
   useEffect(() => {
-    fetch(`http://localhost:3000/recipes/${id}`)
+    fetch(`https://recipe-book-app-server-blue.vercel.app/recipes/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setRecipe(data);
@@ -35,11 +35,14 @@ const RecipeDetails = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/recipes/${id}/like`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userEmail: user.email }),
-      });
+      const res = await fetch(
+        `https://recipe-book-app-server-blue.vercel.app/recipes/${id}/like`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userEmail: user.email }),
+        }
+      );
 
       const result = await res.json();
 

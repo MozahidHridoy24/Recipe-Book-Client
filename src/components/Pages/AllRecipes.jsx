@@ -4,17 +4,17 @@ import Spinner from "../Spinner";
 
 const AllRecipes = () => {
   const [recipes, setRecipes] = useState([]);
-  const [filteredRecipes, setFilteredRecipes] = useState([]); 
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [cuisineFilter, setCuisineFilter] = useState("All"); 
-  const [cuisineOptions, setCuisineOptions] = useState([]); 
+  const [cuisineFilter, setCuisineFilter] = useState("All");
+  const [cuisineOptions, setCuisineOptions] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/recipes")
+    fetch("https://recipe-book-app-server-blue.vercel.app/recipes")
       .then((res) => res.json())
       .then((data) => {
         setRecipes(data);
-        setFilteredRecipes(data); 
+        setFilteredRecipes(data);
         setLoading(false);
         const cuisines = Array.from(new Set(data.map((r) => r.cuisine)));
         setCuisineOptions(["All", ...cuisines]);
