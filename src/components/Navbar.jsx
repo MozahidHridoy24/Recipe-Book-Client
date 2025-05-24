@@ -9,6 +9,7 @@ import ThemeToggle from "./Utility/ThemeToggle";
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -119,23 +120,41 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            <div className="flex items-center gap-2">
+            <>
+              {/* ✅ Avatar with dropdown */}
               <img
                 src={
-                  user.photoURL ||
-                  "https://i.ibb.co/vL1JK63/avatar-placeholder.png"
+                  user.photoURL || (
+                    <div className="avatar avatar-online avatar-placeholder">
+                      <div className="bg-neutral text-neutral-content w-16 rounded-full">
+                        <span className="text-xl">AI</span>
+                      </div>
+                    </div>
+                  )
                 }
                 alt="avatar"
-                className="w-8 h-8 rounded-full ring-2 ring-orange-400"
-                title={user.displayName || "User"}
+                className="w-8 h-8 rounded-full ring-2 ring-orange-400 cursor-pointer"
+                onClick={() => setShowDropdown(!showDropdown)}
+                title="Click to view profile"
               />
-              <button
-                onClick={logout}
-                className="text-red-500 flex items-center gap-1 hover:underline"
-              >
-                <FiLogOut /> Logout
-              </button>
-            </div>
+
+              {showDropdown && (
+                <div className="absolute top-12 right-0 w-48 bg-white shadow-lg border rounded-lg p-3 z-50">
+                  <p className="text-sm font-medium text-gray-700 mb-2">
+                    {user.displayName || "User"}
+                  </p>
+                  <button
+                    onClick={() => {
+                      logout();
+                      setShowDropdown(false);
+                    }}
+                    className="text-red-500 hover:underline flex items-center gap-1"
+                  >
+                    <FiLogOut /> Logout
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>
@@ -143,9 +162,7 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-base-100 text-base-content border-t shadow px-6 py-4 w-full text-left">
-          <nav className="flex flex-col gap-3  font-medium">
-            {navLinks}
-          </nav>
+          <nav className="flex flex-col gap-3  font-medium">{navLinks}</nav>
         </div>
       )}
     </header>
