@@ -39,7 +39,7 @@ const Home = () => {
             <Spinner />
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {topRecipes.map((recipe) => (
+              {topRecipes.slice(0, 6).map((recipe) => (
                 <div
                   key={recipe._id}
                   className="bg-base-100 text-base-content border border-white rounded-xl shadow p-4 "
@@ -66,7 +66,10 @@ const Home = () => {
                   </Link>
                 </div>
               ))}
+              
             </div>
+            
+            
           )}
 
           <div className="text-center mt-10">
