@@ -11,7 +11,7 @@ const RecipeDetails = () => {
   const [likeCount, setLikeCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  console.log(user);
+  // console.log(user);
 
   // Fetch recipe details
   useEffect(() => {

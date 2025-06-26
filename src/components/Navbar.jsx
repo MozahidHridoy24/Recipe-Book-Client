@@ -4,7 +4,6 @@ import { FiLogOut } from "react-icons/fi";
 import { HiMenu, HiX } from "react-icons/hi";
 import { AuthContext } from "./Contexts/AuthContext";
 import { FaBookOpenReader } from "react-icons/fa6";
-import ThemeToggle from "./Utility/ThemeToggle";
 import userIcon from "../assets/user.png";
 
 const Navbar = () => {
@@ -38,12 +37,34 @@ const Navbar = () => {
       >
         All Recipes
       </NavLink>
+      <NavLink
+        to="/About"
+        className={({ isActive }) =>
+          isActive
+            ? "text-orange-500 font-semibold underline"
+            : "hover:text-orange-500"
+        }
+        onClick={() => setIsMenuOpen(false)}
+      >
+        About Us
+      </NavLink>
+      <NavLink
+        to="/Contact"
+        className={({ isActive }) =>
+          isActive
+            ? "text-orange-500 font-semibold underline"
+            : "hover:text-orange-500"
+        }
+        onClick={() => setIsMenuOpen(false)}
+      >
+        Contact
+      </NavLink>
 
       {/*  Show these links only when user is logged in */}
       {user && (
         <>
           <NavLink
-            to="/add-recipes"
+            to="/dashboard"
             className={({ isActive }) =>
               isActive
                 ? "text-orange-500 font-semibold underline"
@@ -51,19 +72,7 @@ const Navbar = () => {
             }
             onClick={() => setIsMenuOpen(false)}
           >
-            Add Recipes
-          </NavLink>
-
-          <NavLink
-            to="/my-recipes"
-            className={({ isActive }) =>
-              isActive
-                ? "text-orange-500 font-semibold underline"
-                : "hover:text-orange-500"
-            }
-            onClick={() => setIsMenuOpen(false)}
-          >
-            My Recipes
+            Dashboard
           </NavLink>
         </>
       )}
