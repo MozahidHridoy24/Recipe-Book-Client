@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
+import Spinner from "../Spinner";
 
 const DashboardCards = () => {
   const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState({
     totalRecipes: 0,
     myRecipes: 0,
@@ -24,11 +26,15 @@ const DashboardCards = () => {
         setStats(data);
       } catch (err) {
         console.error("Failed to fetch dashboard stats:", err);
+      } finally {
+        setLoading(false);
       }
     };
 
     if (user?.email) fetchStats();
   }, [user]);
+
+  if (loading) return <Spinner></Spinner>;
 
   return (
     <div>
@@ -65,7 +71,9 @@ const DashboardCards = () => {
         {/* Placeholder for another card */}
         <div className="bg-green-100 border-l-4 border-green-500 p-5 rounded shadow">
           <h2 className="text-xl font-semibold text-green-600">Total Likes</h2>
-          <p className="text-3xl font-bold text-green-700 mt-2">{stats.likedRecipes}</p>
+          <p className="text-3xl font-bold text-green-700 mt-2">
+            {stats.likedRecipes}
+          </p>
         </div>
       </div>
     </div>

@@ -11,6 +11,8 @@ import RecipeDetails from "../Pages/RecipeDetails";
 import Login from "../Login";
 import Dashboard from "../Pages/Dashboard";
 import DashboardCards from "../Pages/DashboardCards";
+import AboutUs from "../AboutUs";
+import ContactUs from "../ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -59,6 +61,14 @@ export const router = createBrowserRouter([
       {
         path: "/all-recipes",
         element: <AllRecipes></AllRecipes>,
+      },
+      {
+        path: "/about",
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs></ContactUs>,
       },
 
       {

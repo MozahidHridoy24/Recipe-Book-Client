@@ -49,7 +49,7 @@ const Navbar = () => {
         About Us
       </NavLink>
       <NavLink
-        to="/Contact"
+        to="/contact"
         className={({ isActive }) =>
           isActive
             ? "text-orange-500 font-semibold underline"
