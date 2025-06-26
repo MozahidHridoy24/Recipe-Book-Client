@@ -2,9 +2,9 @@ import { NavLink, Outlet } from "react-router";
 
 const Dashboard = () => {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex flex-col md:flex-row min-h-screen">
       {/* Sidebar */}
-      <aside className="w-64 bg-orange-100 text-orange-900 p-6 space-y-4 shadow">
+      <aside className="w-full md:w-64 bg-orange-100 text-orange-900 p-6 space-y-4 shadow">
         <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
         <nav className="flex flex-col space-y-2">
           <NavLink
