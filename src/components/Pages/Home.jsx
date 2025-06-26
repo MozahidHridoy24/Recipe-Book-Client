@@ -3,6 +3,9 @@ import { Link } from "react-router";
 import Banner from "../Banner";
 import Spinner from "../Spinner";
 import ThemeToggle from "../Utility/ThemeToggle";
+import Blogs from "../Blogs";
+import OfferSection from "../OfferSection";
+import Newsletter from "../NewsLetter";
 
 const Home = () => {
   const [topRecipes, setTopRecipes] = useState([]);
@@ -38,7 +41,7 @@ const Home = () => {
           {loading ? (
             <Spinner />
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {topRecipes.slice(0, 6).map((recipe) => (
                 <div
                   key={recipe._id}
@@ -66,10 +69,7 @@ const Home = () => {
                   </Link>
                 </div>
               ))}
-              
             </div>
-            
-            
           )}
 
           <div className="text-center mt-10">
@@ -88,10 +88,19 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Blogs section */}
+      <section>
+        <Blogs></Blogs>
+      </section>
+
+      {/* Offer section */}
+      <section>
+        <OfferSection></OfferSection>
+      </section>
 
       {/* Extra Section: Our Achievements */}
-      <section className="py-12 bg-base-200 text-base-content mt-16">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-12 bg-base-200 text-base-content mt-1">
+        <div className="w-11/12 mx-auto px-6">
           <h2 className="text-3xl font-bold text-center text-orange-500 mb-10">
             Our Achievements
           </h2>
@@ -126,33 +135,43 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Extra Section 2: Features */}
-      <section className="py-12 bg-base-200 mt-16">
-        <div className="max-w-6xl mx-auto px-4 ">
+      {/* Extra Section 2: Why choose us */}
+      <section className="py-12 bg-base-200 mt-1">
+        <div className="w-11/12 mx-auto px-4 ">
           <h2 className="text-3xl font-bold text-center text-orange-500 mb-10">
             Why Choose Us?
           </h2>
           <div className="grid md:grid-cols-3 gap-6 text-center">
             <div className="p-6 bg-base-100 text-base-content border border-white rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">Diverse Recipes</h3>
+              <h3 className="text-xl font-semibold mb-2 text-orange-500">
+                Diverse Recipes
+              </h3>
               <p className="">
                 Explore hundreds of recipes from different cultures and diets.
               </p>
             </div>
-            <div className="p-6 bg-base-100 text-base-content border border-white rounded shadow">
-              <h3 className="text-xl font-semibold mb-2">User-Friendly</h3>
+            <div className="p-6 bg-base-100 text-base-content border border-white rounded-xl shadow">
+              <h3 className="text-xl font-semibold mb-2 text-orange-500">
+                User-Friendly
+              </h3>
               <p className="">
                 Easily upload, edit, and save your favorite meals.
               </p>
             </div>
             <div className="p-6 bg-base-100 text-base-content border border-white rounded shadow">
-              <h3 className="text-xl font-semibold mb-2 ">Community Driven</h3>
+              <h3 className="text-xl font-semibold mb-2 text-orange-500">
+                Community Driven
+              </h3>
               <p className="">
                 Get inspired by top-rated recipes loved by our community.
               </p>
             </div>
           </div>
         </div>
+      </section>
+      {/* Newsletter */}
+      <section>
+        <Newsletter></Newsletter>
       </section>
     </>
   );

@@ -9,7 +9,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-base-100 text-base-content py-8  shadow-2xl border-t border-base-300">
+    <footer className="bg-orange-100  text-black py-8  shadow-2xl border-t border-base-300">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
         {/* Website Name */}
         <h2 className="flex items-center gap-1 text-xl font-semibold text-orange-500">

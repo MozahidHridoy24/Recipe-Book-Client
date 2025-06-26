@@ -38,28 +38,35 @@ const Navbar = () => {
       >
         All Recipes
       </NavLink>
-      <NavLink
-        to="/add-recipes"
-        className={({ isActive }) =>
-          isActive
-            ? "text-orange-500 font-semibold underline"
-            : "hover:text-orange-500"
-        }
-        onClick={() => setIsMenuOpen(false)}
-      >
-        Add Recipes
-      </NavLink>
-      <NavLink
-        to="/my-recipes"
-        className={({ isActive }) =>
-          isActive
-            ? "text-orange-500 font-semibold underline"
-            : "hover:text-orange-500"
-        }
-        onClick={() => setIsMenuOpen(false)}
-      >
-        My Recipes
-      </NavLink>
+
+      {/*  Show these links only when user is logged in */}
+      {user && (
+        <>
+          <NavLink
+            to="/add-recipes"
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-500 font-semibold underline"
+                : "hover:text-orange-500"
+            }
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Add Recipes
+          </NavLink>
+
+          <NavLink
+            to="/my-recipes"
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-500 font-semibold underline"
+                : "hover:text-orange-500"
+            }
+            onClick={() => setIsMenuOpen(false)}
+          >
+            My Recipes
+          </NavLink>
+        </>
+      )}
       <NavLink
         to="/register"
         className={({ isActive }) =>
@@ -75,7 +82,7 @@ const Navbar = () => {
   );
 
   return (
-    <header className="bg-base-100 text-base-content shadow-[0_4px_12px_rgba(0,0,0,0.08)] sticky top-0 z-50 border-b border-base-300">
+    <header className="bg-orange-100 text-base-content shadow-[0_4px_12px_rgba(0,0,0,0.08)] sticky top-0 z-50 border-b border-base-300">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         {/* Left section: Menu icon + Logo */}
         <div className="flex items-center gap-4">
@@ -98,13 +105,64 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex gap-6  font-medium">{navLinks}</nav>
+        <nav className="hidden md:flex gap-6 text-black font-medium">
+          {navLinks}
+        </nav>
 
         {/* Right section: Auth Buttons */}
         <div className="flex items-center gap-3">
+          {/* theme toggle */}
+          {/* 🌗 Theme Toggle Button */}
           <div>
-            <ThemeToggle></ThemeToggle>
+            <label className="toggle text-base-content">
+              <input
+                type="checkbox"
+                value="dark"
+                className="theme-controller"
+              />
+
+              <svg
+                aria-label="sun"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeWidth="2"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="m4.93 4.93 1.41 1.41"></path>
+                  <path d="m17.66 17.66 1.41 1.41"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="m6.34 17.66-1.41 1.41"></path>
+                  <path d="m19.07 4.93-1.41 1.41"></path>
+                </g>
+              </svg>
+
+              <svg
+                aria-label="moon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeWidth="2"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                </g>
+              </svg>
+            </label>
           </div>
+
           {!user ? (
             <>
               <Link
