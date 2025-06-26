@@ -43,9 +43,7 @@ const DashboardCards = () => {
         <h1 className="text-3xl font-bold text-orange-500 mb-2">
           Welcome, {user?.displayName || "Chef"}!
         </h1>
-        <p className="text-base text-gray-600">
-          Here’s your dashboard overview.
-        </p>
+        <p className="text-base-content">Here’s your dashboard overview.</p>
       </div>
 
       {/* Stats Cards */}

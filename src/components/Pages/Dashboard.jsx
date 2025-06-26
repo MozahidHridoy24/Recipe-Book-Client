@@ -9,7 +9,7 @@ const Dashboard = () => {
         <nav className="flex flex-col space-y-2">
           <NavLink
             to="/dashboard"
-            end // Ensures this matches only exact /dashboard
+            end
             className={({ isActive }) =>
               isActive
                 ? "font-semibold text-orange-600 underline"
