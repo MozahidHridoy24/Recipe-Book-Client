@@ -76,7 +76,7 @@ const AboutUs = () => {
           <p className="text-lg">
             👨‍💻 Built by{" "}
             <span className="text-orange-500 font-medium">Mozahidul Islam</span>{" "}
-            — a MERN Stack developer passionate about crafting clean,
+            — a Full Stack developer passionate about crafting clean,
             user-friendly web applications.
           </p>
         </section>

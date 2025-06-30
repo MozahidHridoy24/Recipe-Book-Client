@@ -42,7 +42,7 @@ const MyRecipes = () => {
         })
           .then((res) => res.json())
           .then(() => {
-            setRecipes(recipes.filter((r) => r._id !== id));
+            setRecipes((prev) => prev.filter((r) => r._id !== id));
             Swal.fire("Deleted!", "Your recipe has been deleted.", "success");
           })
           .catch((err) => {
@@ -69,9 +69,7 @@ const MyRecipes = () => {
       `https://recipe-book-app-server-blue.vercel.app/recipes/${selectedRecipe._id}`,
       {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedRecipe),
       }
     )
@@ -90,77 +88,65 @@ const MyRecipes = () => {
       });
   };
 
-  if (loading)
-    return (
-      <div>
-        <Spinner></Spinner>
-      </div>
-    );
+  if (loading) return <Spinner />;
 
   return (
     <div className="p-4 max-w-7xl mx-auto bg-base-200">
       <h2 className="text-3xl font-bold mb-6 text-center text-orange-500">
         My Recipes
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {recipes.map((recipe) => (
-          <div
-            key={recipe._id}
-            className="card bg-base-100 text-base-content border border-white shadow-md p-4"
-          >
-            <img
-              src={recipe.image || "https://via.placeholder.com/400x200"}
-              alt={recipe.title}
-              className="w-full h-48 object-cover rounded-lg"
-            />
-            <div className="p-4 space-y-2">
-              <h3 className="text-xl font-semibold text-orange-600">
-                {recipe.title}
-              </h3>
-              <p>
-                <span className="font-semibold">Ingredients:</span>{" "}
-                {recipe.ingredients}
-              </p>
-              <p>
-                <span className="font-semibold">Instructions:</span>{" "}
-                {recipe.instructions}
-              </p>
-              <p>
-                <span className="font-semibold">Cuisine:</span> {recipe.cuisine}
-              </p>
-              <p>
-                <span className="font-semibold">Preparation Time:</span>{" "}
-                {recipe.preparationTime} mins
-              </p>
-              <p>
-                <strong>Categories:</strong> {recipe.categories?.join(", ")}
-              </p>
-              <p>
-                <span className="font-semibold">Likes:</span>{" "}
-                {recipe.likes || 0}
-              </p>
-              <div className="flex gap-2 mt-2">
-                <button
-                  className="btn btn-sm bg-orange-500 text-white"
-                  onClick={() => setSelectedRecipe(recipe)}
-                >
-                  Update
-                </button>
-                <button
-                  className="btn btn-sm bg-red-600 text-white"
-                  onClick={() => handleDelete(recipe._id)}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
+
+      <div className="overflow-x-auto">
+        <table className="table bg-base-100 border rounded-lg text-base-content">
+          <thead>
+            <tr className="text-left">
+              <th>#</th>
+              <th>Image</th>
+              <th>Title</th>
+              <th>Cuisine</th>
+              <th>Prep Time</th>
+              <th>Likes</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {recipes.map((recipe, index) => (
+              <tr key={recipe._id}>
+                <td>{index + 1}</td>
+                <td>
+                  <img
+                    src={recipe.image || "https://via.placeholder.com/100"}
+                    alt="Recipe"
+                    className="w-16 h-16 object-cover rounded"
+                  />
+                </td>
+                <td>{recipe.title}</td>
+                <td>{recipe.cuisine}</td>
+                <td>{recipe.preparationTime} mins</td>
+                <td>{recipe.likes || 0}</td>
+                <td className="space-x-2">
+                  <button
+                    onClick={() => setSelectedRecipe(recipe)}
+                    className="btn btn-xs bg-orange-500 text-white hover:bg-orange-600"
+                  >
+                    Update
+                  </button>
+                  <button
+                    onClick={() => handleDelete(recipe._id)}
+                    className="btn btn-xs bg-red-600 text-white hover:bg-red-700"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
-      {/* Modal */}
+      {/* Update Modal */}
       {selectedRecipe && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
           <div className="bg-base-100 text-base-content rounded-lg p-6 w-full max-w-lg relative">
             <h3 className="text-xl font-bold mb-4 text-orange-600">
               Update Recipe
@@ -217,13 +203,13 @@ const MyRecipes = () => {
                 <button
                   type="button"
                   onClick={() => setSelectedRecipe(null)}
-                  className="btn btn-sm bg-gray-400 text-white"
+                  className="btn btn-sm bg-gray-600 text-white"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn btn-sm bg-green-600 text-white"
+                  className="btn btn-sm bg-orange-500 text-white"
                 >
                   Save
                 </button>
